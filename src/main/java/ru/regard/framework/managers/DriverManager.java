@@ -3,14 +3,12 @@ package ru.regard.framework.managers;
 import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static ru.regard.framework.utils.PropConst.*;
 
 /**
- * @author Arkadiy_Alaverdyan
  * Класс для управления веб драйвером
  */
 public class DriverManager {

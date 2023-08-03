@@ -6,7 +6,6 @@ import static ru.regard.framework.utils.PropConst.IMPLICITLY_WAIT;
 import static ru.regard.framework.utils.PropConst.PAGE_LOAD_TIMEOUT;
 
 /**
- * @author Arkadiy_Alaverdyan
  * Класс для инициализации фреймворка
  */
 public class InitManager {
