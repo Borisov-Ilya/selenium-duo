@@ -21,17 +21,17 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public MainPage categoryOfCatalog(String nameMenu) {
+    public CategoryPage categoryOfCatalog(String nameMenu) {
         for (WebElement itemMenu : categoryMenus) {
             waitUtilElementToBeVisible(itemMenu);
             if (itemMenu.getText().contains(nameMenu)) {
                 itemMenu.click();
-                return pageManager.getMainPage();
+                return pageManager.getCategoryPage();
             }
 
         }
-        Assertions.fail("меню с текстом" + nameMenu + "не найдена на странице")
-        return pageManager.getMainPage();
+        Assertions.fail("меню с текстом" + nameMenu + "не найдена на странице");
+        return pageManager.getCategoryPage();
 
 }
 }

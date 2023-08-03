@@ -3,6 +3,7 @@ package ru.regard.framework.managers;
 import org.apache.commons.exec.OS;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.jupiter.api.Assertions.fail;
@@ -130,10 +131,10 @@ public class DriverManager {
                 driver = new FirefoxDriver();
                 break;
             case "chrome":
-//                ChromeOptions options = new ChromeOptions();
-//                options.addArguments("--remote-allow-origins=*");
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
                 System.setProperty("webdriver.chrome.driver", props.getProperty(chrome));
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 break;
             default:
                 fail("Типа браузера '" + props.getProperty(TYPE_BROWSER) + "' не существует во фреймворке");

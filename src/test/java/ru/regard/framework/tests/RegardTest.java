@@ -12,6 +12,11 @@ public class RegardTest extends BaseTests {
     @Test
     @DisplayName("Добавление товара в корзину")
     public void addToCart() {
-
+        app.getMainPage()
+                .getBtnCatalog()
+                .categoryOfCatalog("Электроника")
+                .waitLoadPage()
+                .selectSubCategory("Планшеты")
+                .waitLoadPage();
     }
 }
