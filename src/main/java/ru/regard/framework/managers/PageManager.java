@@ -1,22 +1,33 @@
 package ru.regard.framework.managers;
 
+import ru.regard.framework.pages.CategoryPage;
 import ru.regard.framework.pages.MainPage;
+import ru.regard.framework.pages.SearchPage;
 
 /**
- * @author Arkadiy_Alaverdyan
  * Класс для управления страничками
  */
 public class PageManager {
 
     /**
-     * Менеджер страничек
+     * Менеджер страниц
      */
     private static PageManager pageManager;
 
     /**
-     * Главная страничка
+     * Главная страница
      */
     private MainPage mainPage;
+
+    /**
+     * Страница категорий товаров
+     */
+    private CategoryPage categoryPage;
+
+    /**
+     * Страница поиска
+     */
+    private SearchPage searchPage;
 
     /**
      * Конструктор специально был объявлен как private (singleton паттерн)
@@ -48,5 +59,29 @@ public class PageManager {
             mainPage = new MainPage();
         }
         return mainPage;
+    }
+
+    /**
+     * Ленивая инициализация {@link CategoryPage}
+     *
+     * @return MainPage
+     */
+    public CategoryPage getCategoryPage() {
+        if (categoryPage == null) {
+            categoryPage = new CategoryPage();
+        }
+        return categoryPage;
+    }
+
+    /**
+     * Ленивая инициализация {@link MainPage}
+     *
+     * @return MainPage
+     */
+    public SearchPage getSearchPage() {
+        if (searchPage == null) {
+            searchPage = new SearchPage();
+        }
+        return searchPage;
     }
 }
