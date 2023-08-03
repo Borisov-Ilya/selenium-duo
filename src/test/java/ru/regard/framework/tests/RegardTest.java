@@ -19,4 +19,14 @@ public class RegardTest extends BaseTests {
                 .selectSubCategory("Планшеты")
                 .waitLoadPage();
     }
+    @Test
+    @DisplayName("Добавление товара в корзину")
+    public void addToCartTwo() {
+        app.getMainPage()
+                .getBtnCatalog()
+                .categoryOfCatalog("Периферия")
+                .waitLoadPage()
+                .selectSubCategory("Мониторы")
+                .waitLoadPage();
+    }
 }
