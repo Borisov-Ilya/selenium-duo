@@ -13,4 +13,10 @@ public class SearchPage extends BasePage {
         waitUtilElementToBeVisible(titleCount);
         return this;
     }
+
+    @Step
+    public SearchPage addToCart() {
+
+        return this;
+    }
 }

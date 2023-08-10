@@ -38,5 +38,6 @@ public class BaseTests {
     @AfterAll
     public static void afterAll() {
         InitManager.quitFramework();
+        PageManager.getPageManager().clearMapPages();
     }
 }

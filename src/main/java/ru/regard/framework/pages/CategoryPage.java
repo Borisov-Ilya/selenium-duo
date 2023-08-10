@@ -25,14 +25,10 @@ public class CategoryPage extends BasePage {
     @Step
     public SearchPage selectSubCategory(String nameSubCategory) {
         for (WebElement subCategoryItem : subCategoryList) {
-            try {
-                waitUtilElementToBeVisible(subCategoryItem);
-                if (subCategoryItem.getText().contains(nameSubCategory)) {
-                    waitUtilElementToBeClickable(subCategoryItem).click();
-                    return pageManager.getSearchPage();
-                }
-            } catch (StaleElementReferenceException e) {
-                e.printStackTrace();
+            waitUtilElementToBeVisible(subCategoryItem);
+            if (subCategoryItem.getText().contains(nameSubCategory)) {
+                waitUtilElementToBeClickable(subCategoryItem).click();
+                return pageManager.getSearchPage();
             }
         }
         fail("Подкатегория товаров '" + nameSubCategory + "' не была найдена!");

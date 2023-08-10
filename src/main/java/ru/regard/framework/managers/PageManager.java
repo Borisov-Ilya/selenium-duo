@@ -1,8 +1,13 @@
 package ru.regard.framework.managers;
 
+import ru.regard.framework.pages.BasePage;
 import ru.regard.framework.pages.CategoryPage;
 import ru.regard.framework.pages.MainPage;
 import ru.regard.framework.pages.SearchPage;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Класс для управления страничками
@@ -13,6 +18,7 @@ public class PageManager {
      * Менеджер страниц
      */
     private static PageManager pageManager;
+    private Map<String, BasePage> mapPages = new HashMap<>();
 
     /**
      * Главная страница
@@ -47,6 +53,22 @@ public class PageManager {
             pageManager = new PageManager();
         }
         return pageManager;
+    }
+
+    public <T extends BasePage> T getPage(Class<T> ex) {
+        if (mapPages.isEmpty() || mapPages.get(ex.getName()) == null) {
+            try {
+                mapPages.put(ex.getName(), ex.getDeclaredConstructor().newInstance());
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                     InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (T) mapPages.get(ex.getName());
+    }
+
+    public void clearMapPages() {
+        mapPages.clear();
     }
 
     /**
